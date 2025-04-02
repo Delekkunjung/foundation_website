@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delek Kunjung Foundation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -106,21 +107,45 @@
             <li><i class="fas fa-users"></i> Volunteering for our programs.</li>
             <li><i class="fas fa-handshake"></i> Partnering with us to expand our reach.</li>
         </ul>
-        <a href="#" class="button donate-button"><i class="fas fa-donate"></i> Donate Now</a>
-        <br>
-        <a href="intent://pay?pa=tdeepika872-3@okhdfcbank&pn=DelekKunjungFoundation&mc=0000&mode=02&purpose=00#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;" class="button gpay-button"><i class="fab fa-google-pay"></i> Donate with Google Pay</a>
-
-        </div>
+        <form id="donation-form">
+            <input type="text" id="donor-name" placeholder="Your Name" required>
+            <input type="number" id="donation-amount" placeholder="Amount" required>
+            <button type="submit" class="button donate-button"><i class="fas fa-donate"></i> Donate Now</button>
+        </form>
+        <button onclick="generateReceipt()" class="button download-button"><i class="fas fa-file-invoice"></i> Download Receipt</button>
     </div>
     <div class="container">
         <h2>Photo Gallery</h2>
         <div class="gallery">
             <img src="IMG_8206.JPG" alt="Gallery Image 1">
-            
         </div>
     </div>
     <footer>
         &copy; 2025 Delek Kunjung Foundation. All rights reserved.
     </footer>
+    <script>
+        function generateReceipt() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let name = document.getElementById("donor-name").value;
+            let amount = document.getElementById("donation-amount").value;
+            let date = new Date().toLocaleDateString();
+            
+            if (!name || !amount) {
+                alert("Please enter donor name and donation amount before generating a receipt.");
+                return;
+            }
+            
+            doc.text("Delek Kunjung Foundation", 20, 20);
+            doc.text("Donation Receipt", 20, 30);
+            doc.text(`Name: ${name}`, 20, 40);
+            doc.text(`Amount: $${amount}`, 20, 50);
+            doc.text(`Date: ${date}`, 20, 60);
+            doc.text("Thank you for your support!", 20, 80);
+            
+            doc.save("donation_receipt.pdf");
+        }
+    </script>
 </body>
 </html>

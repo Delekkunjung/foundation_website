@@ -4,65 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delek Kunjung Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #f4f4f4;
+            background: url('scenic-background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
         header {
-            background: #333;
+            background: rgba(51, 51, 51, 0.8);
             color: white;
             padding: 20px;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .donate-button {
+        .button {
             display: inline-block;
-            background: #28a745;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 18px;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px;
         }
-        .gpay-button {
+        .donate-button { background: #28a745; }
+        .gpay-button { background: #000; }
+        .download-button { background: #007bff; }
+        ul {
+            text-align: left;
             display: inline-block;
-            background: #000;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            list-style-type: none;
+            padding: 0;
         }
-        .download-button {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+        ul li {
+            margin: 10px 0;
+        }
+        ul li i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+        h2 {
+            color: #28a745;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
         footer {
-            background: #333;
+            background: rgba(51, 51, 51, 0.8);
             color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .qr-code {
+            margin-top: 15px;
+        }
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -70,23 +92,36 @@
     <header>
         Delek Kunjung Foundation
     </header>
-    <img src="IMG-20240504-WA0006.jpg" alt="Delek Kunjung Foundation Logo" style="max-width: 300px; display: block; margin: 0 auto;">
+    <img src="IMG-20240504-WA0006.jpg" alt="Foundation Logo" style="max-width: 250px; display: block; margin: 20px auto; border-radius: 10px;">
     <div class="container">
         <h2>Welcome to Delek Kunjung Foundation</h2>
         <p>Supporting families in emergencies, education, health, and business.</p>
-        <a href="foundation_info.pdf" download class="download-button">Download Foundation Info PDF</a>
+        <a href="foundation_info.pdf" download class="button download-button"><i class="fas fa-file-download"></i> Download Foundation Info</a>
     </div>
     <div class="container">
         <h2>Get Involved</h2>
         <p>Join us in making a difference. You can help by:</p>
-        <ul style="text-align: left; display: inline-block;">
-            <li>Donating to support our initiatives.</li>
-            <li>Volunteering for our programs.</li>
-            <li>Partnering with us to expand our reach.</li>
+        <ul>
+            <li><i class="fas fa-hand-holding-heart"></i> Donating to support our initiatives.</li>
+            <li><i class="fas fa-users"></i> Volunteering for our programs.</li>
+            <li><i class="fas fa-handshake"></i> Partnering with us to expand our reach.</li>
         </ul>
-        <a href="#" class="donate-button">Donate Now</a>
+        <a href="#" class="button donate-button"><i class="fas fa-donate"></i> Donate Now</a>
         <br>
-        <a href="https://pay.google.com/gp/p/ui/pay?pa=YOUR-UPI-ID&pn=tdeepika872-3@okhdfcbank" class="gpay-button">Donate with Google Pay</a>
+        <a href="https://pay.google.com/gp/p/ui/pay?pa=tdeepika872-3@okhdfcbank" class="button gpay-button"><i class="fab fa-google-pay"></i> Donate with Google Pay</a>
+        <div class="qr-code">
+            <p>Scan the QR code to donate via Google Pay:</p>
+            <img src="GooglePay_QR(1).png" alt="Google Pay QR Code">
+        </div>
+    </div>
+    <div class="container">
+        <h2>Photo Gallery</h2>
+        <div class="gallery">
+            <img src="image1.jpg" alt="Gallery Image 1">
+            <img src="image2.jpg" alt="Gallery Image 2">
+            <img src="image3.jpg" alt="Gallery Image 3">
+            <img src="image4.jpg" alt="Gallery Image 4">
+        </div>
     </div>
     <footer>
         &copy; 2025 Delek Kunjung Foundation. All rights reserved.

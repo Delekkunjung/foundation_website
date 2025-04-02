@@ -109,7 +109,7 @@
         </ul>
         <form id="donation-form">
             <input type="text" id="donor-name" placeholder="Your Name" required>
-            <input type="number" id="donation-amount" placeholder="Amount" required>
+            <input type="number" id="donation-amount" placeholder="Amount (INR)" required>
             <button type="submit" class="button donate-button"><i class="fas fa-donate"></i> Donate Now</button>
         </form>
         <button onclick="generateReceipt()" class="button download-button"><i class="fas fa-file-invoice"></i> Download Receipt</button>
@@ -140,7 +140,7 @@
             doc.text("Delek Kunjung Foundation", 20, 20);
             doc.text("Donation Receipt", 20, 30);
             doc.text(`Name: ${name}`, 20, 40);
-            doc.text(`Amount: Rs-{amount}`, 20, 50);
+            doc.text(`Amount: ₹${amount}`, 20, 50);
             doc.text(`Date: ${date}`, 20, 60);
             doc.text("Thank you for your support!", 20, 80);
             
@@ -149,3 +149,4 @@
     </script>
 </body>
 </html>
+

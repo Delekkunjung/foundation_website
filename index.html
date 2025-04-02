@@ -78,15 +78,20 @@
             padding: 15px;
             margin-top: 20px;
         }
-        .qr-code {
-            margin-top: 15px;
+        .payment-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
         }
-        .qr-code img {
-            width: 200px;
-            height: 200px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+        .gpay { background-color: #4285F4; }
+        .paytm { background-color: #00b9f5; }
+        .phonepe { background-color: #673ab7; }
     </style>
 </head>
 <body>
@@ -110,43 +115,15 @@
         <form id="donation-form">
             <input type="text" id="donor-name" placeholder="Your Name" required>
             <input type="number" id="donation-amount" placeholder="Amount (INR)" required>
-            <button type="submit" class="button donate-button"><i class="fas fa-donate"></i> Donate Now</button>
         </form>
+        <h3>Donate Now</h3>
+        <a class="payment-btn gpay" href="upi://pay?pa=tdeepika872-3@okhdfcbank&pn=YourName&mc=&tid=&tr=&tn=Donation&am=100000&cu=INR" target="_blank">Pay with Google Pay</a>
+        <a class="payment-btn paytm" href="upi://pay?pa=9678248179@ptsbi&pn=YourName&mc=&tid=&tr=&tn=Donation&am=100000&cu=INR" target="_blank">Pay with Paytm</a>
+        <a class="payment-btn phonepe" href="upi://pay?pa=deepika.thakur4@axl&pn=YourName&mc=&tid=&tr=&tn=Donation&am=100000&cu=INR" target="_blank">Pay with PhonePe</a>
         <button onclick="generateReceipt()" class="button download-button"><i class="fas fa-file-invoice"></i> Download Receipt</button>
-    </div>
-    <div class="container">
-        <h2>Photo Gallery</h2>
-        <div class="gallery">
-            <img src="IMG_8206.JPG" alt="Gallery Image 1">
-        </div>
     </div>
     <footer>
         &copy; 2025 Delek Kunjung Foundation. All rights reserved.
     </footer>
-    <script>
-        function generateReceipt() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            let name = document.getElementById("donor-name").value;
-            let amount = document.getElementById("donation-amount").value;
-            let date = new Date().toLocaleDateString();
-            
-            if (!name || !amount) {
-                alert("Please enter donor name and donation amount before generating a receipt.");
-                return;
-            }
-            
-            doc.text("Delek Kunjung Foundation", 20, 20);
-            doc.text("Donation Receipt", 20, 30);
-            doc.text(`Name: ${name}`, 20, 40);
-           doc.text(`Amount:Rs ${amount}`, 20, 50);
-           doc.text(`Date: ${date}`, 20, 60);
-            doc.text("Thank you for your support!", 20, 80);
-            
-            doc.save("donation_receipt.pdf");
-        }
-    </script>
 </body>
 </html>
-
